@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import OnirixSDK from '../../src/assets/onirix/ox-sdk.esm.js';
+import { Injectable } from "@angular/core";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import OnirixSDK from "../../src/assets/onirix/ox-sdk.esm.js";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class OnirixService {
   _model!: THREE.Group;
@@ -21,7 +21,7 @@ export class OnirixService {
 
   async initSDK() {
     this.oxSDK = new OnirixSDK(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc3MTgzLCJwcm9qZWN0SWQiOjEyNDg0Mywicm9sZSI6MywiaWF0IjoxNzU5NjQ4MjY0fQ.z56P0TKW6TNFDygScXvrvgqfXHdyqB42lhwJojI0pkc'
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc3MDY3LCJwcm9qZWN0SWQiOjEyNDU3MSwicm9sZSI6MywiaWF0IjoxNzU5NDEyODAwfQ.LvNvUl3ijnwmkBOUeOVqHtVtajOpZLI3M0tGDuc9EA4"
     );
     const config = {
       mode: OnirixSDK.TrackingMode.Surface,
@@ -82,11 +82,13 @@ export class OnirixService {
     });
 
     const gltfLoader = new GLTFLoader();
-    gltfLoader.load('/bear.glb', (gltf) => {
+    const modelPath = "/bear.glb";
+    // const modelPath = "/Vendor/Original Character.glb";
+    gltfLoader.load(modelPath, (gltf) => {
       this._model = gltf.scene;
+      this._model.rotateY(180 * (Math.PI / 180))
       // Play model animation
-      if(gltf.animations){
-
+      if (gltf.animations) {
         const mixer = new THREE.AnimationMixer(this._model);
         const action = mixer.clipAction(gltf.animations[0]);
         action.play();
@@ -163,7 +165,7 @@ export class OnirixService {
     this._raycaster.setFromCamera(mouse, this._camera);
     const intersects = this._raycaster.intersectObject(this._model, true);
     if (intersects.length > 0) {
-      console.log('Model clicked');
+      console.log("Model clicked");
       console.log(intersects);
       this._model.visible = false;
       // this._modelClicked.set(true);
