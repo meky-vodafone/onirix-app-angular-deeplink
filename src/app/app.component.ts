@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   private onirixService = inject(OnirixService);
-  link: string = 'https://2ead6b3531f4.ngrok-free.app/'; // input value bound to input field
+  link: string = 'https://95b6a6b0d2c2.ngrok-free.app'; // input value bound to input field
 
   ngOnInit() {
     this.onirixService.init();
