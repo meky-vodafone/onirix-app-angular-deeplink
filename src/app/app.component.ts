@@ -12,6 +12,6 @@ export class AppComponent {
   link: string = 'https://5cdb7306ac90.ngrok-free.app'; // input value bound to input field
 
   ngOnInit() {
-    this.onirixService.init();
+    // this.onirixService.init();
   }
 }
