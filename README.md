@@ -1,3 +1,4 @@
+https://671258921252.ngrok-free.app
 # ArGameApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
