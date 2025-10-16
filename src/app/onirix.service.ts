@@ -21,7 +21,7 @@ export class OnirixService {
 
   async initSDK() {
     this.oxSDK = new OnirixSDK(
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc3MDY3LCJwcm9qZWN0SWQiOjEyNDU3MSwicm9sZSI6MywiaWF0IjoxNzU5NDEyODAwfQ.LvNvUl3ijnwmkBOUeOVqHtVtajOpZLI3M0tGDuc9EA4"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc3NzI3LCJwcm9qZWN0SWQiOjEyNjE5Miwicm9sZSI6MywiaWF0IjoxNzYwNjA1MDI2fQ.qm28LOrLhUmKbhYUheR82ISkFs0XcOrMQ6lqZDCj-oE"
     );
     const config = {
       mode: OnirixSDK.TrackingMode.Surface,
