@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     const params = this.route.snapshot.queryParams;
 
     // ✅ Check if there are any query params
-    if (Object.keys(params).length > 0) {
+    if (Object.keys(params).length > 1) {
       console.log('Raw query params:', params);
 
       // Convert from string to proper types
