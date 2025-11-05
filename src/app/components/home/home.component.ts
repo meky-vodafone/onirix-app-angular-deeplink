@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const params = this.route.snapshot.queryParams;
 
-    // ✅ Check if there are any query params
-    if (Object.keys(params).length > 1) {
+    // ✅ Only proceed if caughtCharachter exists in query params
+    if ('caughtCharachter' in params) {
       console.log('Raw query params:', params);
 
-      // Convert from string to proper types
+      // Convert string values to proper types
       this.caughtCharacter =
         params['caughtCharachter'] === 'true'
           ? true
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       console.log('caughtCharacter:', this.caughtCharacter);
       console.log('time:', this.time);
 
-      // ✅ Only alert if params exist
+      // ✅ Only alert if caughtCharachter param is present
       alert(`caught: ${this.caughtCharacter} & time=${this.time}`);
     }
   }
